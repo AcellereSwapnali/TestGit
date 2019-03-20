@@ -1,0 +1,16 @@
+.e_message{
+	margin: 0 auto;
+	width:400px;
+	height:auto;
+	text-align:center;
+	border: 1px solid #faa61a; 
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.content_holder .plugin_cityView{
+	height: 100%;
+}
+.content_holder .plugin_container_cityView{
+	height: 100%;
+	overflow-y: hidden;
+}
