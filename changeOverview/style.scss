@@ -1,0 +1,25 @@
+@import '../../scss/external/breakpoint-sass/stylesheets/_breakpoint';
+$break-small-medium:1360px;
+
+.emulsion_panel[data-panel_id='change_overview'] {
+    .content_and_header_wraper {
+        .content_holder {
+            .plugin_container {
+                .project_details_container {
+                    .project_details_data {
+                        .error_wrapper {
+                            padding-top: 6em;
+                        }
+                    }
+                }
+                .component_details_container {
+                    .component_details {
+                        .error_wrapper {
+                            padding-top: 6em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
