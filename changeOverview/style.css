@@ -1,0 +1,394 @@
+@charset "UTF-8";
+
+/* CSS Document */
+
+.plugin_changeOverview .no_data {
+	width :50px;
+	height:50px;
+	position: absolute;
+}
+
+.plugin_changeOverview .category .no_data {
+	left: 43%;
+	top:50%;
+}
+
+.plugin_changeOverview .details_div .no_data {
+	left: 42%;
+	top:40%;
+}
+
+.plugin_changeOverview .project_details , .plugin_changeOverview .component_details {
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	border : 1px solid #eaebee;
+	position: relative;
+	margin-bottom: 5px;
+}
+
+.plugin_changeOverview .component_details {
+	border-left: none;
+}
+
+.plugin_changeOverview .component_details .details_row:first-child{
+	margin-top: 30px;
+}
+
+.plugin_changeOverview .project_description , .plugin_changeOverview .component_description {
+	width :100%;
+	border : 1px solid #eaebee;
+	line-height: 24px;
+	border-right:none;
+}
+
+.plugin_changeOverview .project_description, .plugin_changeOverview .details_wrapper,.plugin_changeOverview .project_details {
+	height: 400px;
+}
+
+.plugin_changeOverview .component_description, .plugin_changeOverview .details_wrapper,.plugin_changeOverview .component_details {
+	height: 330px;
+	box-sizing:content-box;
+}
+
+.plugin_changeOverview .details_wrapper {
+    padding-left: 0;
+}
+
+.plugin_changeOverview  .details_div {
+	height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.plugin_changeOverview .project_description .text {
+	width:60%;
+}
+
+.plugin_changeOverview .project_description .value {
+	width:40%;
+	text-align:right;
+}
+
+.text2 {
+	line-height: 1.7;
+}
+
+.plugin_changeOverview .health_diff .arrow_left {
+	width: 60px;
+	height: 27px;
+	margin: 0 auto;
+	margin-top: -3px;
+	padding-left: 3px;
+}
+
+.plugin_changeOverview .project_details .arrow_left {
+	width: 45px;
+	height: 30px;
+}
+
+.plugin_changeOverview .arrow_left.green polygon {
+	fill : #48c1a3;
+}
+
+.plugin_changeOverview .arrow_left.red polygon {
+	fill : #f26c69;
+}
+
+.plugin_changeOverview .project_details_container , .plugin_changeOverview .component_details_container {
+	 padding-left: 0;
+}
+
+.plugin_changeOverview .project_description_container , .plugin_changeOverview .component_description_container {
+	 padding-right: 0;
+}
+
+.plugin_changeOverview .health {
+	height: 89px;
+	width: 100%;
+	margin-bottom: 52px;
+	margin-top: 25px;
+	padding-top: 5px;
+}
+
+.plugin_changeOverview .health_graph {
+	width: 80px;
+	height: 80px;
+	border:3px solid black;
+	border-radius: 50%;
+	line-height: 76px;
+	text-align: center;
+}
+
+.plugin_changeOverview .small_square {
+	width: 12px;
+	height: 12px;
+}
+
+.plugin_changeOverview .change_list_btn {
+	margin-top : 0px;
+}
+
+.plugin_changeOverview .box_1 {
+    width: 50px;
+    margin: 0 auto;
+    padding: 1px;
+}
+
+.plugin_changeOverview .box_2 {
+	padding: 8px 0;
+	 width: 90px;
+}
+
+.plugin_changeOverview .health_diff_val {
+	text-align: center;
+}
+
+.plugin_changeOverview .project_description .health_diff {
+	margin: 0 auto;
+	margin-top: 10px;
+    width: -moz-calc(100% - 160px);
+    width: -webkit-calc(100% - 160px);
+    width: calc(100% - 160px);
+}
+
+.plugin_changeOverview .category .per_diff_wrapper {
+	margin: 0 auto;
+    width:  155px;
+    height: 46px;
+    padding-top: 46px;
+}
+
+.plugin_changeOverview .category .density_diff_wrapper,
+.plugin_changeOverview .category .val_diff_wrapper {
+	 vertical-align: text-top;
+}
+
+.plugin_changeOverview .description.metrics .values,
+.plugin_changeOverview .description.duplication .values {
+	padding-top: 116px;
+}
+
+.plugin_changeOverview .no_data_plugin {
+ 	width :50px;
+	height:50px;
+	left: 47%;
+	top:47%;
+	position: absolute;
+ }
+
+ /* ------------- NEW CSS ----------------- */
+.plugin_changeOverview .project_description .loc_change ,.plugin_changeOverview .project_description .rating_change {
+ 	width:100%;
+ 	height: auto;
+}
+.plugin_changeOverview .project_description .rating_change {
+	margin-top: 35px;
+}
+.plugin_changeOverview .project_description .rating_change .dropdown_arrow {
+	font-size: 1.5em;
+}
+.plugin_changeOverview .project_description .loc_change {
+	padding-left: 30px;
+	margin-top: 60px;
+}
+.plugin_changeOverview .project_description .loc_change .loc_icon {
+ 	width: 41px;
+ 	height: 25px;
+ 	margin: 3px 10px 0 0;
+}
+
+.plugin_changeOverview .project_description .loc_change .loc_data {
+ 	width:70%;
+ 	height: auto;
+}
+
+.plugin_changeOverview .rating_change .dropdown_container {
+	width: 100%;
+	margin-bottom: 37px;
+	margin-top: 40px;
+ }
+
+.project_details_header {
+    width:100%;
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.project_details_title {
+    width:50%;
+    height: 100%;
+}
+
+.project_details_data {
+    width:100%;
+    height: auto;
+    margin-top: 35px;
+}
+
+.title_content {
+    height: 35px;
+    line-height: 23px;
+    text-align: center;
+    width: 150px;
+    margin: auto;
+    margin-top: 15px;
+    padding: 5px;
+}
+
+.deterioration {
+  	/*border-top-right-radius: 5px;*/
+}
+
+.changed_components {
+  	 /*border-top-left-radius: 5px;*/
+}
+
+.removed_components {
+  	/*border-bottom-left-radius: 5px;*/
+}
+
+.project_details .details_row , .component_details .details_row {
+    width: 95%;
+    line-height: 1.4;
+    padding-left: 30px;
+    margin-left: 20px;
+}
+
+.details_row {
+    border-color: #eaebee;
+    width: 100%;
+    padding-left: 30px;
+   	margin-bottom: 15px;
+}
+.component_details .details_row {
+	 padding: 5px;
+}
+.details_icon {
+   width: 20px;
+   height: 20px; 
+   margin: 2px 10px 0 0;
+}
+
+.hotspot_icon {
+  	width:30px;
+  	height: 20px;
+}
+
+.component_description .details_icon {
+   width: 30px;
+   height: 30px;
+   margin: 15px 10px 0 0;
+}
+
+.details_text {
+    width: 80%;
+}
+
+.project_component_page {
+  	height: auto;
+  	margin-top: 15px;
+}
+
+.component_change {
+  	width:100%;
+  	border : 1px solid #eaebee;
+  	height: auto;
+  	border-left: none;
+  	border-bottom: none;
+}
+
+.component_icon {
+  	width:15px;
+  	height: 15px;
+  	margin-top: -2px;
+}
+
+.rating_arrow {
+  	height: 14px;
+  	margin: -2px 0px 0px 5px;
+    width: 7px;
+}
+
+.changed_component_name {
+  	max-width: 50%;
+    width: auto;
+}
+
+.component_loc_icon {
+  	height: 18px;
+    width: 32px;
+    margin: 6px 5px 0 0 ;
+}
+
+.rating_diff {
+  	line-height: 18px;
+  	text-align: center;
+}
+
+.rating_info {
+	float: left;
+  	height: 18px;
+  	padding: 0px 5px 0px 5px;
+  	margin-right: 10px;
+}
+
+.content_border_top {
+  	border-top: 1px solid #eaebee;
+}
+
+.top {
+	-moz-box-shadow: 0 -5px 5px -5px #eaebee;
+	-webkit-box-shadow: 0 -5px 5px -5px #eaebee;
+	box-shadow: 0 -5px 5px -5px #eaebee;
+	filter: progid:DXImageTransform.Microsoft.dropShadow(color=#eaebee, offX=0, offY=0,  positive=true);
+}
+
+.right {
+	-moz-box-shadow: 5px 0 5px -5px #eaebee;
+	-webkit-box-shadow: 5px 0 5px -5px #eaebee;
+	box-shadow: 5px 0 5px -5px #eaebee;
+	filter: progid:DXImageTransform.Microsoft.dropShadow(color=#eaebee, offX=0, offY=0,  positive=true);
+}
+
+.bottom {
+	-moz-box-shadow: 0 5px 5px -5px #eaebee;
+	-webkit-box-shadow: 0 5px 5px -5px #eaebee;
+	box-shadow: 0 5px 5px -5px #eaebee;
+	filter: progid:DXImageTransform.Microsoft.dropShadow(color=#eaebee, offX=0, offY=0,  positive=true);
+}
+
+.left {
+	-moz-box-shadow: -5px 0 5px -5px #eaebee;
+	-webkit-box-shadow: -5px 0 5px -5px #eaebee;
+	box-shadow: -5px 0 5px -5px #eaebee;
+	filter: progid:DXImageTransform.Microsoft.dropShadow(color=#eaebee, offX=0, offY=0,  positive=true);
+}
+
+.all {
+	-moz-box-shadow: 0 0 5px #eaebee;
+	-webkit-box-shadow: 0 0 5px #eaebee;
+	box-shadow: 0 0 5px #eaebee;
+	filter: progid:DXImageTransform.Microsoft.dropShadow(color=#eaebee, offX=0, offY=0,  positive=true);
+}
+
+.component_loc_value {
+	line-height: 1.5;
+	margin-left: 5px;
+}
+.component_loc_change{
+	margin: -5px 0 0 20px;
+	padding: 0 10px;
+}
+.tab_vertical{
+	margin-bottom: 0px;
+	height: 110px;
+	line-height: 110px;
+	box-sizing:border-box;
+}
+.project_land_page{
+	margin-top: 15px;
+}
+.project_details_container, .project_description_container, .component_details_container, .component_description_container{
+	margin-top: 5px;
+}
