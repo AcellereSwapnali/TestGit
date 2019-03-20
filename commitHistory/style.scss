@@ -1,0 +1,1871 @@
+$backgroundColorMedium:#F1F2F4;
+$colorMedium: #aeb1bd;
+$colorDark: #3b434c;
+$colorLikelyBug: #ed9f50;
+$colorFixedBug: #52c38d;
+$baseFont: 16;
+@mixin ellipsis() {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction: rtl;
+}
+.emulsion_panel[data-panel_id='commit_history'] {
+    .tabs_container,.notification_wrap{
+        float: right;
+        display: block;
+        cursor: pointer;
+    }
+    .tab_container .tabs {
+        overflow: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border:1px solid #dbdbdd;
+    }
+    .tabs_container
+    {
+        float: left;
+        width: 25%;
+        max-width: 25%;
+    }
+    .switchbutton_container
+    {
+        padding:0;
+        border-bottom:none;
+    }
+    .switch_container
+    {
+        // width:15%;
+        border:none;
+        height:24px;
+        border-radius:5px;
+        margin-top:1em;
+        // margin-left:2em;
+        border:1px solid #273141;
+        .switch_menu
+        {
+            text-transform: capitalize;
+            padding-top:0;
+            font-size:1em;
+            color:#273141;
+        }
+        .switch_button_selection
+        {
+            color:white;
+            background-color:#273141;
+        }
+    }
+    .notification_wrap
+    {
+        float: left;
+        width:50%;
+        max-width: 60%;
+        margin-left: 1em;
+        // background: red;
+        .notification
+        {
+            height: 25px;
+            background:rgba(247, 206, 135, 1);
+            padding: 3px 9px;
+            margin-top:1em;
+            border-radius: 4px;
+            display: table;
+            table-layout: fixed;
+            >*
+            {
+                display: table-cell;
+                vertical-align: middle;
+            }
+            i
+            {
+                vertical-align: middle;
+                font-size: 1.2em;
+                padding-right:10px;
+            }
+            .desc
+            {
+                vertical-align: middle;
+            }
+        }
+    }
+    .panel_header .panel_title
+    {
+        margin-right:1em;
+    }
+    .content_and_header_wraper {
+        .panel_header{
+            padding:1em 5em;
+            .sanpshot_selection_container{
+                display: none;
+            }
+        }
+        .content_holder {
+            .plugin_container {
+                &.plugin-commit-history {
+                    // .commit-history
+                    // {
+                    //     display: none;
+                    // }
+                    section
+                    {
+                        border-top:none;
+                    }
+                    // max-width:1280px;
+                    width: 100%;
+                    padding: 0 3em;
+
+                    // section{
+                    //     margin-top:40/$baseFont * 0.25em;
+                    // }
+                    .likely-bugs,
+                    .bug-fixed {
+                        padding: 0.25em 1em;
+                        border-radius: 10px;
+                        color: #fff;
+                        line-height: 1.5em !important;
+                        i {
+                            height: 1em;
+                            width: 1em;
+                            font-size: 1em;
+                            display: inline-block;
+                            margin-right: 3px;
+                            vertical-align: top;
+
+                        }
+                    }
+
+                    .likely-bugs {
+                        // margin-right: 0.5em;
+                        color: $colorLikelyBug;
+                        border: 1px solid;
+                    }
+
+                    .bug-fixed {
+                        color: $colorFixedBug;
+                        border: 1px solid;
+                    }
+                    .section-title {
+                        font-size: 1em;
+                        line-height: 1em;
+                        margin-bottom: 2em;
+                        height: 2em;
+                        .section-title-text {
+                            float: left;
+                            margin-top: 0.5em;
+                        }
+                        .section-search-container {
+                            float: right;
+                            #search-box {
+                                font-family: 'ubuntu_regular';
+                                font-size: 0.75em;
+                                float: left;
+                                padding: 0.5em;
+                                width: 100%;
+                                -webkit-border-radius: 3px;
+                                border-radius: 3px;
+                            }
+                        }
+                        .filter-commits-wrapper{
+                            float: right;
+                            margin-top: 5px;
+                            .filter-commits-label{
+                                font-family: 'ubuntu_regular';
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                    .changed-files{
+                        margin-top: 1em;
+                        .change-file-container {
+                            display: block;
+                            position: relative;
+                            width: 100%;
+                            text-align: center;
+                            height: auto;
+                            min-height:12.5em;
+                            border: 1px solid $backgroundColorMedium;
+                            border-radius: 5px;
+                            .error_wrapper {
+                                height: 200px;
+                                .error_type {
+                                    margin-top: 0.5em;
+                                }
+                                .error_heading {
+                                    display: none;
+                                }
+                            }
+                            .file-header {
+                                display: table;
+                                width: 100%;
+                                height: 3em;
+                                background: $backgroundColorMedium;
+                                .file-count-title {
+                                    display: table-cell;
+                                    font-size: 0.9em;
+                                    vertical-align: middle;
+                                    text-align: left;
+                                    padding-left: 1em;
+                                }
+                                .scan-status-inline-container {
+                                    display: table-cell;
+                                    text-align: right;
+                                    padding: 15px 1em;
+                                    >* {
+                                        display: inline-block;
+                                        vertical-align: middle;
+                                    }
+                                    .btn-container {
+                                        margin-left: 10px;
+                                        display:none;
+                                    }
+                                    .btn-sm {
+                                        padding: .5em 1em;
+                                        i {
+                                            margin-top: 1px
+                                        }
+                                    }
+                                }
+                                .scan-status {
+                                    display: none;
+                                    vertical-align: middle;
+                                    text-align: right;
+                                    font-size: 0.7em;
+                                    color:$colorMedium;
+                                }
+                                .btn {
+                                    display: table-cell;
+                                    padding: 0 1em;
+                                    text-align: center;
+                                    border-radius: 5px;
+                                    transition: all 0.25s ease-in-out;
+                                    &.btn-sm {
+                                        font-size: 0.7em;
+                                    }
+                                    &.orange {
+                                        background-color: #EE7C42;
+                                        color: white;
+                                        border: 1px solid #EE7C42;
+                                    }
+                                }
+                            }
+                            .file-content-wrapper {
+                                min-height: 3em;
+                                max-height: 5em;
+                                height: auto;
+                                display: table;
+                                width: 100%;
+                                padding:1.5em;
+                                .main-content {
+                                    display: table-cell;
+                                    vertical-align: top;
+                                    width:50%;
+                                }
+                                .file-list {
+                                    ul {
+                                        height:8em;
+                                        max-height: 8em;
+                                        overflow-y: auto;
+                                        li {
+                                            padding: 0em 1.5em 0.5em;
+                                            position: relative;
+                                            &::before
+                                            {
+                                                content: "\2022";
+                                                padding-right: 0;
+                                                position: absolute;
+                                                left: 2px;
+                                                top: -7px;
+                                                font-size: 2.2em;
+
+
+                                            }
+                                            p
+                                            {
+                                                white-space: nowrap;
+                                                overflow: hidden;
+                                                text-overflow: ellipsis;
+                                                width: 75%;
+                                                direction: rtl;
+                                                text-align: left;
+                                                margin-bottom: 0;
+
+                                            }
+                                            i {
+                                                color: rgb(0, 194, 145);
+                                            }
+                                        }
+                                    }
+                                    .change-status {
+                                        text-align: right;
+                                        width: 100%;
+                                    }
+                                    .fluid_row_checkbox_container {
+                                        display: table;
+                                        font-family: 'ubuntu_regular';
+                                        >* {
+                                            display: table-cell;
+                                        }
+                                        .label {
+                                            border-bottom: none;
+                                            width: 100%;
+                                            height: 2em;
+                                            margin-left: 3em;
+                                            padding: 0;
+                                            margin-top: 0;
+                                            >* {
+                                                font-family: 'ubuntu_regular';
+                                            }
+                                            .name {
+                                                line-height: 1.5em;
+                                                font-size: 1.1em;
+                                                @include ellipsis();
+                                            }
+                                        }
+                                    }
+                                }
+                                .insights-report {
+                                    text-align: left;
+                                    padding: 0 1em 0 2em;
+                                    .insights-title {
+                                        width:100%;
+                                        font-size: 0.9em;
+                                        margin-bottom: 1.5em;
+                                    }
+                                    .insights-content {
+                                        font-size: 0.75em;
+                                        i
+                                        {margin-top:3px;}
+                                        >* {
+                                            display: inline-block;
+                                        }
+                                        .bug-prediction-text {
+                                            padding-left: 0.5em;
+                                            color:$colorMedium;
+                                            a {
+                                                text-decoration: underline;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .file-footer {
+                                display: table;
+                                width: 100%;
+                                vertical-align: middle;
+                                height: 3em;
+                                .btn-container {
+                                    text-align: right;
+                                    align-self: flex-end;
+                                    padding: 0.7em;
+                                    .btn {
+                                        display: inline-block;
+                                        padding: 0 1em;
+                                        text-align: center;
+                                        border-radius: 5px;
+                                        transition: all 0.25s ease-in-out;
+                                        &.btn-med {
+                                            font-size: 0.8em;
+                                            min-width: 8em;
+                                        }
+                                        &.white {
+                                            background-color: white;
+                                            color: #EE7C42;
+                                            border: 1px solid;
+                                        }
+                                        &.blue {
+                                            background-color: #1f98c8;
+                                            color: white;
+                                            border: 1px solid #1f98c8;
+                                        }
+                                        &.orange {
+                                            background-color: #EE7C42;
+                                            color: white;
+                                            border: 1px solid #EE7C42;
+                                        }
+                                        /* &:hover {
+                                            background-color: #c6563c;
+                                        } */
+                                        .text-container {
+                                            display: inline-block;
+                                            .btn-text {
+                                                display: inline-block;
+                                                text-transform: capitalize;
+                                                line-height: 30px;
+                                            }
+                                        }
+                                        &:first-child {
+                                            margin-right: 0.7em;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .pull-request{
+                        .section-search-container{
+                            display: none;
+                        }
+                        .commit-history-body ul li
+                        {
+                            &:hover{
+                                border:1px solid #ef7e53!important;
+                            }
+                        }
+                        .commit-history-header
+                        {
+                            height: auto!important;
+                            // display: table;
+                        }
+                        // >*
+                        // {
+                        //     display: table-cell;
+                        // }
+                        .heading,.row-container{
+                            max-width:30%;
+                        }
+                        .status
+                        {
+                            width:5%;
+                        }
+                        .id
+                        {
+                            width:15%;
+                            border-right: 1px solid #dbdbdd;
+
+                        }
+                        .summary
+                        {
+                            width:25%;
+                            // padding-left: 30px;
+                            &.fork-files{
+                                width:50%;
+                            }
+                        }
+                        .issue{
+                            .inline-icon-container
+                            {
+                                display: table;
+                                >*
+                                {
+                                    display: table-cell;
+                                }
+                                // i
+                                // {
+                                //     padding-right:10px;
+                                // }
+                            }
+                        }
+                        .number
+                        {
+                            text-align: center;                            
+                            &.scan-no-data, &.scan-fail, &.scan-abort, &.scan-no-data{
+                                &.issue{
+                                    text-align: left;
+                                }
+                            }
+                        }
+                        .header
+                        {
+                            .id
+                            {
+                                border-right: none;
+                            }
+                            .row-group
+                            {
+                                display: table-cell;
+                                border-right: none;
+                                .status{
+                                    padding:0 0 0 20px;
+                                }
+                            }
+                        }
+                        .inline-row-container
+                        {
+                            display: table;
+                            width: 100%;
+                            table-layout: fixed;
+                            // padding:13px;
+                            >*
+                            {
+                                display: table-cell;
+                                vertical-align: middle;
+                                font-size:12px;
+                                text-align:left;
+                                padding:15px;
+                            }
+
+                        }
+                        .icon-contianer
+                        {
+                            .ic-pull-request-filled{
+                                color: #29A745;
+                            }
+                            i{
+                                font-size:1.5em;
+                            }
+                        }
+                        .pull-request-id
+                        {
+                            font-size:25px;
+                            color:#2E3847;
+                            opacity: 0.2;
+                            width:150px;
+                            min-width: 150px;
+                        }
+                        .details-content {
+                            margin:0 20px 0 0;
+                            .message {
+                                display: block;
+                                line-height: 1.5em;
+                                color:#2E3847;
+                                font-size: 14px;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                max-width: 20em;
+                                width: 15em;
+                                overflow: hidden;
+                            }
+                            .timeline-msg {
+                                display: block;
+                                color: #A7ADB5;
+                                font-size: 11px;
+                                line-height: 1.5em;
+                                width: 100%;
+                                overflow: hidden;
+                                word-break: break-word;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                >* {
+                                    vertical-align: middle;
+                                }
+
+                                .commit-author {
+                                    // font-weight: bold;
+                                }
+
+                                .date {
+                                    font-weight: normal;
+                                }
+                            }
+                        }
+                        .row-group
+                        {
+                            // opacity: 0.2;
+                            border-right: 1px solid #dbdbdd;
+                            margin-right: 20px;
+                            .row-container
+                            {
+                                padding:10px 20px;
+                            }
+                        }
+                        .inline-icon-container,.row-group{
+                            // display: table;
+                            // margin:0 auto;
+                            >*
+                            {
+                                vertical-align: middle;
+                                display: inline-block;
+                            }
+                            i{
+                                margin-right:5px;
+                                font-size:2em;
+                                &.ic-check{
+                                    border: 1px solid #29a745;
+                                    color: #29a745;
+                                    border-radius: 50%;
+                                    height: 20px;
+                                    width: 23px;
+                                    font-size: 18px;
+                                    position: relative;
+                                    right: -4px;
+                                    // font-size:14px;
+                                }
+                                &.ic-info{
+                                    // margin-left: 35px;
+                                    // height: 20px;
+                                    // width: 20px;che
+                                    // font-size: 26px;
+                                    // border-radius: 50%;
+                                }
+                            }
+                            span
+                            {
+                                background:#ffffff;
+                                padding:5px;
+                                border-radius: 4px;
+                            }
+                            .issue-count-container{
+                                min-width: 72px;
+                                display: block;
+                                margin-left: 10px;
+                                text-align: center;
+                            }
+                        }
+                        .commits-cell{
+                            .inline-icon-container {                                
+                                span {
+                                    min-width: 35px;
+                                    text-align: center;
+                                }
+                            }
+                        }
+
+                        .changed-files-cell{
+                            .inline-icon-container {                                
+                                span {
+                                    min-width: 50px;
+                                    text-align: center;
+                                }
+                            }
+                        }
+                        .row-group
+                        {
+                            display: table;
+                            >*
+                            {
+                                display: table-cell;
+                                vertical-align: middle;
+                            }
+                        }
+
+                        .ic-issues
+                        {
+                            color:#E9844F
+                        }
+                        .ic-pull-request
+                        {
+                            color:#29a745;
+                        }
+                        .button-wrap
+                        {
+                            // padding-right:20px;
+                            text-align: right;
+
+                        }
+                        .view-code {
+                            height: 25px;
+                            width: 100px;
+                            font-size: .9em;
+                            // margin-right: 1em;
+                            background: transparent;
+                            color: #2E3847;
+                            border: 1px solid #EE7C42;
+                            text-transform: capitalize;
+                            &:hover
+                            {
+                                background:#EE7C42;
+                                color:white;
+                            }
+                        }
+                        .heading
+                        {
+                            color:#A7ADB5;
+                            text-align:left;
+                            font-size:12px;
+                        }
+
+                    }
+                    .commit-history
+                    {
+                        .commit-history-table 
+                        {
+                            .commit-history-body
+                            {
+                                ul
+                                {
+                                    li
+                                    {
+                                        padding:0!important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .commit-history,.pull-request {
+                        margin-top: 2em;
+                        margin-bottom: 2em;
+                        overflow: hidden;
+                        span {
+                            display: inline-block;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            line-height: 1em;
+                            vertical-align: middle;
+                        }
+                        .no-commits {
+                            min-height: 15em;
+                            position: relative;
+                            .error_wrapper {
+                                height: auto;
+                            }
+                        }
+                        .commit-history-table {
+                            font-size: 12/$baseFont * 1em;
+                            .commit-history-header,
+                            .commit-history-body ul li a> {
+                                span[class^="commit-details"] {
+                                    padding-left: 1em;
+                                    width:50%;
+                                    max-width: 50%;
+                                }
+                                span[class^="file-changes"] {
+                                    // padding-left: 1em;
+                                    width:15%;
+                                    max-width: 20%;
+                                }
+                                span[class^="bugs-insights"] {
+                                    padding-left: 1em;
+                                    min-width: 10%;
+                                }
+                                span[class^="rating"] {
+                                    padding-left: 1em;
+                                    width:12%;
+                                    max-width: 12%;
+                                }
+                                span[class^="commit-header"],
+                                span[class^="commit-wraper"] {
+                                    // padding-left: 1em;
+                                    width:10%;
+                                    max-width: 10%;
+                                    // text-align: right;
+                                    
+                                }
+                                // span[class^="commit-header"]{
+                                //     padding-left: 0;
+                                // }
+                            }
+                            .commit-history-body ul li a:hover
+                            {
+                                padding: 12px;
+                                border-radius: 4px;
+                                box-sizing: inherit;
+                                border:1px solid #ef7e53;
+                                .commit-wraper .button_primary
+                                {
+                                    background-color: #ef7e53;
+                                    color:white;
+                                }
+                            }
+                            .commit-history-header {
+                                color: $colorMedium;
+                                padding: 0 0 2em;
+                                width: 100%;
+                                overflow: hidden;
+                                font-size: 12px/16*$baseFont;
+                                height: 16px;
+                                border-bottom: 1px solid $backgroundColorMedium;
+                                >* {
+                                    line-height: 1.5em;
+                                }
+                                span.commit-details-header{
+                                    padding-left: 2em;
+                                }
+                            }
+                            .commit-history-body {
+                                ul {
+                                    width: 100%;
+                                    overflow: hidden;
+                                    li {
+                                            // border-bottom: 1px solid $backgroundColorMedium;
+                                            margin:15px 0;
+                                            background-color:#f6f6f6;
+                                            width:100%;
+                                            overflow: hidden;
+                                            border-radius: 4px;
+                                            border: 1px solid #f6f6f6;
+                                            -o-transition:.5s;
+                                            -ms-transition:.5s;
+                                            -moz-transition:.5s;
+                                            -webkit-transition:.5s;                                            
+                                            /* ...and now for the proper property */
+                                            transition:.5s;
+                                            // &:hover{
+                                            //     border: 1px solid #EE7C42;
+                                            // }
+                                            &.scan-success-item{
+                                                cursor: pointer;
+                                            }
+
+                                        a {
+                                            color: $colorDark;
+                                            width: 100%;
+                                            overflow: hidden;
+                                            display: table;
+                                            table-layout: fixed;
+                                            padding: 13px;
+                                            .commit-details {
+                                                padding-left: 1em;
+                                                width: 25%;
+                                                .avatar {
+                                                    width: 15%;
+                                                    background-size: cover;
+                                                    background-position: center center;
+                                                    background-color: #fff;
+                                                    border-radius: 50%;
+                                                    height: 32px;
+                                                    max-width: 32px;
+                                                    float: left;
+                                                }
+                                                .commit-details-content {
+                                                    width: 75%;
+                                                    padding-left: 1em;
+                                                    .commit-msg {
+                                                        display: block;
+                                                        line-height: 1.5em;
+                                                    }
+                                                    .commit-timeline-msg {
+                                                        display: block;
+                                                        color: $colorMedium;
+                                                        font-size: 10px;
+                                                        line-height: 1.5em;
+                                                        >* {
+                                                            vertical-align: middle;
+                                                        }
+
+                                                        .commit-author {
+                                                            font-weight: bold;
+                                                        }
+
+                                                        .date {
+                                                            font-weight: normal;
+                                                            margin-left: 0.3em;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            .file-changes {
+                                                .file-changed-count {
+                                                    display: block;
+                                                    line-height: 1.5em;
+                                                    padding-left: 1px;
+                                                    i {
+                                                        height: 1.2em;
+                                                        width: 1.2em;
+                                                        font-size: 1.25em;
+                                                        display: inline-block;
+
+                                                    }
+                                                }
+                                                .loc-added {
+                                                    margin-right: 0.5em;
+                                                    padding-left: 4px;
+                                                }
+                                                .loc-added,
+                                                .loc-removed {
+                                                    color: $colorMedium;
+                                                    font-size: 10px;
+                                                    line-height: 1.5em;
+                                                }
+                                                .improvement{
+                                                    color:#2cbe4e;
+                                                }
+                                                .deteriorate{
+                                                    color:#cb2431;
+                                                }
+                                                .inline-icon-container i{
+                                                    font-size: 2em;
+                                                    vertical-align: middle;
+                                                }
+                                                .inline-icon-container span
+                                                {
+                                                    background: #ffffff;
+                                                    padding: 5px;
+                                                    border-radius: 4px;
+                                                }
+                                            }
+                                            .bugs-insights {
+                                                overflow: unset;
+                                                >*
+                                                {
+                                                    display: inline-block;
+                                                }
+                                                /*.btn-container
+                                                {
+                                                    display: flex;
+                                                    flex-wrap: nowrap;
+
+                                                    .btn-wrap
+                                                        {
+                                                            width:100px;
+                                                            max-width: 150px;
+                                                            margin-right: 5px;
+                                                            span
+                                                            {
+                                                                >*
+                                                                {
+                                                                    vertical-align: middle;
+                                                                }
+                                                            }
+                                                        }
+                                                }*/
+                                                .inline-icon-container{
+                                                    // display: table;
+                                                    margin:0 auto;
+                                                    >*
+                                                    {
+                                                        vertical-align: middle;
+                                                        display: inline-block;
+                                                    }
+                                                    i{
+                                                        margin-right:5px;
+                                                        font-size:2em;
+                                                        &.ic-check{
+                                                            border: 1px solid #29a745;
+                                                            color: #29a745;
+                                                            border-radius: 50%;
+                                                            height: 20px;
+                                                            width: 20px;
+                                                            font-size: 18px;
+                                                        }
+                                                    }
+                                                    .ic-issues
+                                                    {
+                                                        color:#E9844F;
+                                                    }
+                                                    span
+                                                    {
+                                                        background:#ffffff;
+                                                        padding:5px;
+                                                        border-radius: 4px;
+                                                    }
+                                                    .issue-count-container{
+                                                        min-width: 40px;
+                                                        text-align: center;
+                                                    }
+                                                }
+                                            }
+                                            .commit-id-btn{
+                                                padding-right:10px;
+                                                cursor: pointer;
+                                            }
+                                            .rating {
+                                                margin-top: 1px;
+                                                line-height: 32px;
+                                                .dots-wrapper
+                                                {
+                                                    padding:0px 10px 3px;
+                                                    width:100%;
+                                                    text-align:center;
+                                                    .dot
+                                                    {
+                                                        height: 10px;
+                                                        width: 10px;
+                                                        background-color: #00dcb3;
+                                                        display: inline-block;
+                                                        vertical-align:middle;
+                                                    }
+                                                    .improved-dot
+                                                    {
+                                                        background-color: #2cbe4e;
+                                                    }
+                                                    .deteriorated-dot
+                                                    {
+                                                        background-color: #cb2431;
+                                                    }
+                                                    .nochange-dot
+                                                    {
+                                                        background-color: #d1d5da;
+                                                    }
+                                                }
+
+                                            }
+
+                                            span[class^="commit-wraper"] {
+                                                padding-left: 2em;
+                                                // text-align: right;
+                                            }
+                                            .commit-wraper {
+                                                line-height: 3em;
+                                                margin-top: 0;
+
+                                                .view-code {
+                                                    height: 30px;
+                                                    width: 100px;
+                                                    font-size: 1em;
+                                                    float: right;
+                                                    margin-right: 0;
+                                                    background: transparent;
+                                                    color: #EE7C42;
+                                                    border: 1px solid #EE7C42;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .commit-history-pagination {
+                            float: left;
+                            background-color: #f1f2f4;
+                            width: auto;
+                            height: 48px;
+                            line-height: 2.1;
+                            padding: 0.65em;
+                            margin: 1.2em 0;
+                            border-radius: 4px;
+                            >* {
+                                width:auto;
+                                height: auto;
+                                float: left;
+                            }
+                            .pagination-title {
+                                font-family: 'ubuntu_regular';
+                                font-size: 12px;
+                            }
+                            .colon,
+                            .page-number {
+                                margin:0 0.5em;
+                            }
+                            .showing-div {
+                                background-color: #ffffff;
+                                color: #aeb1bd;
+                                font-family: 'ubuntu_regular';
+                                font-size: 12px;
+                                float: left;
+                                height: 28px;
+                                line-height: 28px;
+                                margin-left: 10px;
+                                padding:0 0.5em;
+                                >* {
+                                    float: left;
+                                }
+                                .showing-text {
+                                    margin-right: 0.5em;
+                                }
+                            }
+
+                            .commit-history-stepper {
+                                float: left;
+                                height: 28px;
+                                .stepper_container {
+                                    float: left;
+
+                                    .previous {
+                                        float: left;
+                                        width: 28px;
+                                        height: 28px;
+                                        margin-left: 2px;
+                                    }
+
+                                    .inputWrapper {
+                                        float: left;
+                                        font-family: 'ubuntu_regular';
+                                        width: 28px;
+                                        height: 28px;
+                                        margin-left: 2px;
+
+                                        .inputValue {
+                                            float: left;
+                                            border-color: rgb(234, 235, 238);
+                                        }
+                                    }
+
+                                    .next {
+                                        float: right;
+                                        width: 28px;
+                                        height: 28px;
+                                        margin-left: 2px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+.loc-added,  {
+    color: #D35353 ;
+    font-size:1em;
+    padding:0 5px!important;
+}
+.loc-removed
+{
+    color:#28BB69;
+    font-size:1em;
+    padding:0 5px!important;
+}
+.pull-request-panel,.commit-details-panel{
+    font-family: 'ubuntu_regular';
+    .popup_title_container{
+        .popup_title{
+            >*
+            {
+                display:inline-block;
+                vertical-align: middle;
+                padding: 0 20px;
+            }
+            .pull-request-popup-icon{
+                font-size:20px;
+                color: #29A745;
+            }
+            .ic-pull-request
+            {
+                color:#29a745;
+            }
+            .info{
+                font-size: 15px;
+            }
+            .description{
+                font-size: 15px;
+                white-space: nowrap;
+                width: 20em;
+                max-width: 25em;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                cursor: pointer;
+            }
+            .title
+            {
+                color:#2E3847;
+                opacity: 0.2;
+                font-size:22px;
+            }
+            .avatar{
+                width: 25px;
+                margin-right: 10px;
+                border-radius: 50%;
+            }
+            .details
+            {
+                font-size: 12px;
+                color:#A7ADB5;
+            }
+            .branch-details-wrap
+            {
+                margin-left: 5px;
+                >*
+                {
+                    display:inline-block;
+                    font-size: 12px;
+                    color:#a7adb5;
+                    vertical-align: middle;
+                }
+                i
+                {
+                    padding:0 5px;
+                    color:#646464;
+                    font-size: 8px;
+                }
+            }
+
+            margin-left:0;
+        }
+    }
+    #popup_content
+    {
+        .header-content
+        {
+            width: 100%;
+            // background: red;
+            height: 30px;
+        }
+        .commit-history-header,
+        {
+            display: table;
+            width:100%;
+            padding: 15px;
+            background: #f1f2f4;
+            >*
+            {
+                display: table-cell;
+                vertical-align: middle;
+            }
+            .float-right
+            {
+                text-align: right;
+                .inline-row-container{
+                    margin-left:0;
+                    margin-right: 10px;
+                }
+            }
+            .inline-row-container,.fluid_row_checkbox_container{
+                display: table;
+                >*
+                {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+                .option_text
+                {
+                    margin-left:30px;
+                    margin-top:-4px;
+                    font-size: .8em;
+                    line-height: 26px;
+                }
+            }
+            .inline-checkbox-container{
+                >*
+                {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                .inline-row-container
+                {
+                    margin-left: 30px
+                }
+            }
+            .inline-icon-container{
+                // width: 30%;
+                // max-width: 30%;
+                >*
+                {
+                    vertical-align: middle;
+                    display: inline-block;
+
+                }
+                i{
+                    padding-right:5px;
+                    font-size:1.5em;
+                }
+                .ic-issues
+                {
+                    color:#E9844F;
+                }
+                span
+                {
+                    background:#ffffff;
+                    padding:5px;
+                    border-radius: 4px;
+                }
+                .loc-removed,.loc-added
+                {
+                    font-size:1em!important;
+                }
+
+            }
+            .pull-request-details
+            {
+                .inline-icon-container
+                {
+                    padding:0 10px;
+                    font-size: .8em;
+                    padding-right: 25px;
+                    cursor: pointer;
+                }
+            }
+        }
+        .commit-history-wrapper{
+            .file-tab-content-wrapper{
+                border-top: 1px solid #eaebee;
+                border-bottom: 1px solid #eaebee;
+            }
+            // float: left;
+            .commit-history-container{
+                #diff_view{
+                    .CodeMirror-merge {
+                        border-left: 0;
+                        border-top: 0;
+                    }
+                }
+                .diff-view-left-container{
+                    width: 20%;
+                    float: right;
+                    display: none;
+                }
+                .diff-view-right-container{
+                    height: 500px;
+                    margin-left: 100px;
+                }
+                .CodeMirror-merge.CodeMirror-merge-2pane{
+                    height: 100%;
+                    .CodeMirror-merge-pane {
+                        width: 50%;
+                        .CodeMirror-merge-r-chunk{
+                            background: #ffeeea;
+                        }
+                        .CodeMirror-merge-r-chunk-start{
+                            border-top: 1px solid #ffeeea;
+                        }
+                        .CodeMirror-merge-r-chunk-end{
+                            border-bottom: 1px solid #ffeeea;
+                        }
+                    }
+                    .CodeMirror-merge-gap{
+                        display: none;
+                    }
+                    .CodeMirror-merge-pane.CodeMirror-merge-pane-rightmost{
+                        .CodeMirror-merge-r-chunk{
+                            background: #cef9e1;
+                        }
+                        .CodeMirror-merge-r-chunk-start{
+                            border-top: 1px solid #d9eff7;
+                        }
+                        .CodeMirror-merge-r-chunk-end{
+                            border-bottom: 1px solid #d9eff7;
+                        }
+                    }
+                }
+                .CodeMirror-gutter-elt .rounded_square{
+                    background: transparent;
+                    width: 10px;
+                    padding:0;
+                }
+                .styled-background{
+                    background: #ffeeea;
+                }
+                .CodeMirror-merge-copy{
+                    display: none;
+                }
+                .CodeMirror {
+                    // height: 100%;
+                    .CodeMirror-gutters{
+                        height: 100%;
+                        .CodeMirror-lint-markers{
+                            min-width: 100px;
+                            width: 100px;
+                        }
+                        .CodeMirror-bugs-markers{
+                            min-width: 40px;
+                            width: 40px;
+                        }
+                        .CodeMirror-file-status{
+                            display: block;
+                            background: #d9eff7;
+                            border: 1px solid #4a90e2;
+                            height: 20px;
+                            color: #4a90e2;
+                            padding: 0 4px;
+                            z-index: 99;
+                        }
+                    }
+                    .CodeMirror-merge-r-inserted, .CodeMirror-merge-l-inserted, .CodeMirror-merge-r-deleted, .CodeMirror-merge-l-deleted{
+                        background-image: none;
+                    }
+                    .file-status-tag {
+                        text-align: center;
+                        text-transform: uppercase;
+                        font-size: 10px;
+                        line-height: 12px;
+                        color: #4a90e2;
+                        margin-top: -15px;
+                    }
+                    .issue-status {
+                        display: flex;
+                        float: left;
+                        padding: 3px;
+                        background-color: #28bb69;
+                        border-radius: 0 3px 3px 0;
+                        cursor: pointer;
+                        .issue-status-count{
+                            background-color: #fff;
+                            color: #28bb69;
+                            line-height: 10px;
+                            font-weight: bold;
+                            font-size: 10px;
+                            border-radius: 50%;
+                            padding: 0px;
+                        }
+                        .issue-status-title{
+                            background-color: #cef9e1;
+                            color: #28bb69;
+                            padding: 0px 4px;
+                            border-radius: 0 2px 2px 0;
+                            text-transform: uppercase;
+                            line-height: 17px;
+                            // display: none;
+                        }
+                        .issue-status-count > .issue-status-title {
+                            visibility: hidden;
+                            opacity: 0;
+                            transition: visibility 0s, opacity 0.5s linear;
+                        }
+                        .issue-status-count:hover > .issue-status-title {
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                    }
+                    .CodeMirror-scroll{
+                        padding-top: 15px;
+                    }
+                    .triangle_right {
+                        border-bottom: 8px solid rgba(0, 0, 0, 0);
+                        border-left: 7px solid #960735;
+                        border-top: 8px solid rgba(0, 0, 0, 0);
+                        height: 0;
+                        width: 0;
+                    }
+                    .triangle_left {
+                        border-bottom: 8px solid rgba(0, 0, 0, 0);
+                        border-right: 7px solid #960735;
+                        border-top: 8px solid rgba(0, 0, 0, 0);
+                        height: 0;
+                        width: 0;
+                    }
+                    .square_middle{
+                        height: 16px;
+                        line-height: 16px;
+                        width: auto;
+                        min-width: 25px;
+                    }
+                }
+            }
+        }
+
+    }
+
+}
+
+
+
+
+.loading-wrapper
+{
+    display: table;
+    >*
+    {
+        display: table-cell;
+    }
+    .loading
+    {
+        min-width: 50px;
+        width:auto;
+    }
+}
+.scan-in-progress
+{
+    background: transparent!important;
+    font-size: 11px;
+}
+.dot-flashing-wrapper
+{
+    .dot-flashing {
+        margin-left:18px;
+        position: relative;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: #989da1;
+        color: #989da1;
+        animation: dotFlashing 1s infinite linear alternate;
+        animation-delay: .5s;
+        margin-right: 25px;
+        &::before, &::after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: 0;
+        }
+        &::before {
+            left: -15px;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background-color: #989da1;
+            color: #989da1;
+            animation: dotFlashing 1s infinite alternate;
+            animation-delay: 0s;
+        }
+        &::after {
+            left: 15px;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background-color: #989da1;
+            color: #989da1;
+            animation: dotFlashing 1s infinite alternate;
+            animation-delay: 1s;
+        }
+    }
+    &.scan-abort {
+        color:#fdac65;
+    }
+    &.scan-fail {
+        color:#bf4349;
+    }
+    &.scan-no-data {
+        color: #A7ADB5;
+    }
+    &.delete-files {
+        color: #A7ADB5;
+    }
+    &.fork-files {
+        color: #A7ADB5;
+    }
+}
+@keyframes dotFlashing {
+    0% {
+      background-color: #989da1;
+    }
+    50%{
+      background-color: #bec0c3;
+    }
+    100% {
+        background-color: #e3e4e5;
+      }
+  }
+.recommandation-warpper
+{
+    height: auto;
+    position: relative;
+}
+
+.recommandation-container
+{
+    background:#ecf3fc;
+    position: absolute;
+    z-index: 999;
+    margin: 0 auto;
+    height: auto;
+    min-height: 300px;
+    margin-left:8%;
+    border:2px solid #4a90e2;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+
+}
+
+.pull-request-recommandation
+{
+    // padding: 1em;
+    // .header{padding: 15px;}
+    .inline-row-container
+    {
+        // display: table;
+        // display: flex;
+        font-size: .7em;
+        width: 100%;
+        >*
+        {
+            display: table-cell;
+            vertical-align: middle;
+            padding: 0 5px;
+        }
+        .icon-container
+        {
+            i
+            {
+                font-size: 1.5em;
+                color:#000
+            }
+        }
+        .info
+        {
+            p
+            {
+                font-size: 1em;
+                margin-bottom: 0;
+            }
+        }
+        .commit-id-info,.issue-id-info
+        {
+            font-weight: 600;
+            color:#273141;
+            max-width:15em;
+            width:15em;
+            line-height: 25px;
+            cursor: default;
+        }
+        .issue-title-info {
+            // max-width: 400px;
+            // min-width: 400px;
+            cursor: default;
+            line-height: 16px;
+            width: calc(100% - 15em);
+        }
+        .issue-classification{
+            // display: flex;
+            text-align: right;
+            .classification-tag {
+                background:#428BD8;
+                margin:0px 5px 3px 0px;
+                color: #fff;
+                padding: 5px;
+                min-width: 80px;
+                max-width: 80px;
+                text-align: center;
+                border-radius: 5px;
+                // margin-top: 5px;
+                line-height: 16px;
+                display: inline-block;
+            }
+        }
+        .pull-request-id
+        {
+            color:#0569cd;
+        }
+        .close-btn-wrapper
+        {
+            float: right;
+            cursor:pointer ;
+            margin-top: 3px;
+            i{
+                background-color:	#B4D1ED;
+                border-radius: 50px;
+                padding:4px;
+                color:#0569cd;
+            }
+        }
+    }
+    .issue-details-section {
+        width: 100%;
+        padding: 1em 2.5em;
+        min-height: 50px;
+    }
+    .issue-description-section{
+        background: #d1e2f7;
+    }
+    .bug-description{
+        background: #D5E2F8;
+        padding: 1em;
+        display: table;
+        >*
+        {
+            display: inline-block;
+        }
+    }
+    .recommandation
+    {
+        width:100%;
+        display: flex;
+        // padding: 15px 0;
+        padding: 0 2em 2em;
+        >*
+        {
+            display: inline-flex;
+            align-items: flex-start;
+            // padding: 15px;
+        }
+        #bug-header
+        {
+            background: #ffeaea;
+            border:1px solid #e9bcbc;
+            padding:15px;
+            margin-right:2.5em;
+        }
+        #bug-suggestions
+        {
+            background: #dbf9e8;
+            border:1px solid #4fd88c;
+            padding:15px;
+            position: relative;
+        }
+        #bug-suggestions:hover
+        {
+            .copy-code-btn-wrapper
+            {
+                display: block;
+            }
+        }
+        .copy-code-btn-wrapper{
+            position: absolute;
+            bottom: 35px;
+            right: 7em;
+            background: #f9f9f9;
+            padding: 10px;
+            font-size: 1em;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            cursor:pointer;
+            // display: none;
+        }
+        #bug-suggestions,#bug-header
+        {
+            width:48%;           
+            height: 200px;
+            overflow-y: auto;
+            font-size: .8em;
+            border-radius: 5px;
+            .suggestion-code,.description
+            {
+                line-height: 22px;
+            }
+        }
+        #bug-recos-stepper
+        {
+            // width:5%;
+            margin-left:2em;
+            align-items: center;
+            .up,.down
+            {
+                color:#4a90e2;
+                font-size: 1.5em;
+                cursor: pointer;
+                &.disable{
+                    pointer-events: none;
+                    opacity: 0.5;
+                }
+            }
+            .down
+            {
+                border-top: 1px solid #d1e2f7;
+            }
+            .up{
+                border-bottom: 1px solid #d1e2f7;
+            }
+            .stepper
+            {
+                // padding: 10px 0;
+                border: 1px solid #d1e2f7;
+                >*
+                {
+                    padding: 10px;
+                    background: white;
+                }
+                .selection
+                {
+                    font-size: .6em;
+                    color:#4a90e2;
+                    padding:15px 5px;
+                    text-align: center;
+                }
+            }
+
+        }
+    }
+}
+
+.pull-request-panel,.commit-details-panel {
+    .commit-history-wrapper {
+        position: relative;
+        .file_tab_bar{
+            height: 29px;
+            border-top: 1px solid #E4E4E4;
+            .file_tab {
+                line-height: 0.5em;
+            }
+        }
+        .diff-content-wrapper{
+            // float: left;
+            .file_tab_bar{
+                height: 29px;
+                border-top: 1px solid #E4E4E4;
+                .file_tab {
+                    line-height: 0.5em;
+                }
+            }
+        }
+        .diff-view-file-tabs {
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 5;
+        }
+        #code_view {
+            margin-left: 100px;
+        }
+        .code-lane-wrapper{
+            border-top: 0;
+            width: 101px;
+            border: 1px solid #E4E4E4;
+            z-index:1;
+            position:absolute;
+            .issue-count-container,.issue-icons-container{
+                // float: left;
+                width: 100%;
+                color: #A7ADB5;
+                padding: 3px 0px;
+            }
+            .issue-count-container{
+                margin-top: 1em;
+            }
+            .issue-icons-container{
+                margin-bottom: 1em;
+            }
+            .issue-count {
+                font-size: 12px;
+                width: 16px;
+                min-width: 16px;
+                min-width: 16px;
+                text-align: center;
+                cursor: pointer;
+            }
+            .issue-icons,.issue-count{
+                // float: left;
+            }
+            .ic-code-quality-filled{
+                padding-left: 0;
+            }
+            .ic-design-issues{
+                padding-left: 37px;
+            }
+            .ic-bugs-filled{
+                margin-left: -5px;
+                text-align: center;
+                display: inline-block;
+                width: 100%;
+            }
+            .codeissue-count{
+                margin-left: 0;
+                width: 21px;
+                max-width: 21px;
+                display: inline-block;
+                text-align: center;
+            }
+            .designissue-count{
+                margin-left: 37px;
+                width: 15px;
+                display: inline-block;
+                text-align: center;
+            }
+            .bugs-count{
+                margin-left: -5px;
+                text-align: center;
+                display: inline-block;
+                width: 100%;
+            }
+        }
+    }
+}
+
+.pull-request-panel{
+    .commit-history-wrapper
+    {
+
+        .file_tab_bar{
+            height: 35px;;
+            .file_tab{
+                //line-height: 0.5em !important;
+                padding: 8px 10px;
+                line-height: 18px;
+                .issue-count{
+                    background-color: #eee;
+                    border-radius: 4px;
+                    padding: 2px;
+                    vertical-align: super;
+                    display: inline-block;
+                    line-height: 12px;
+                    .loc-removed, .loc-added {
+                        vertical-align: top;
+                    }
+
+                }
+                .file_name{
+                    max-width: 107px;
+                    display: inline-block;
+                    height: 18px;
+                    padding-left: 4px;
+                    line-height: 18px;
+                }
+            }
+        }
+    }
+}
+.bug-icon{
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    right: 20px;
+    width: 14px;
+    height: 14px;
+    line-height: 16px;
+    font-size: 14px;
+    color: #cf6058;
+}
+.visiblity-hidden{
+    visibility: hidden;
+}
+
+.fork-files
+{
+    .scan-in-progress{
+        width: 100px;
+        max-width: 150px
+    }
+}
