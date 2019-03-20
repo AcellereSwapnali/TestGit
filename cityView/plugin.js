@@ -30,6 +30,7 @@
 		{	
 			if(g.loadFromHistory)
 				g.loadFromHistory = false;
+			
 			else
 			{
 				g.pushHistory('city_view',historyManager.get('currentContext'),plugin_options,settings);
@@ -66,6 +67,7 @@
 		}
 
 		function swfReady(evt) {
+			console.log('this is test..');
 			setTimeout(function() {
 				var src= g.DOMAIN_NAME + '/gamma/api/cityview/getcityview';
 				if(e.request_register.indexOf(src) != -1)
